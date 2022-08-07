@@ -1,4 +1,4 @@
-package fr.francoisaudoy.PersonRegister.controller;
+package fr.francoisaudoy.personregister.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
