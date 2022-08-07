@@ -1,10 +1,13 @@
 package fr.francoisaudoy.personregister.controller;
 
+import lombok.NoArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController()
+@Controller
 @RequestMapping(path = "/person")
 public class RegisterController {
 
