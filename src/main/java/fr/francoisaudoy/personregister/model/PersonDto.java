@@ -1,16 +1,19 @@
 package fr.francoisaudoy.personregister.model;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person {
+@ToString
+@Setter
+@Getter
+@Data
+public class PersonDto {
 
     private String userName;
-    private Date birthdate;
+    private String birthdate;
     private String country;
     private String phoneNumber;
     private String gender;
