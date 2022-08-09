@@ -9,6 +9,7 @@ import lombok.*;
 @Setter
 @Getter
 @Data
+@EqualsAndHashCode
 public class PersonDto {
 
     private String userName;
