@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -20,7 +21,7 @@ public class PersonEntity {
     @Column(name = "id", nullable = false)
     private Long id;
     private String userName;
-    private String birthdate;
+    private Date birthdate;
     private String country;
     private String phoneNumber;
     private String gender;
