@@ -9,14 +9,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.util.Date;
+
 @SpringBootTest
 class RegisterControllerTest {
 
     @Autowired
     private RegisterController controller;
 
-    private final PersonDto personWithFullInformation = new PersonDto("Francois", "18/07/1994", "France", "0608854560", "Male");
-    private final PersonDto personWithoutOptionalInformation = new PersonDto("Francois", "18/07/1994", "France", "", "");
+    private final PersonDto personWithFullInformation = new PersonDto("Francois", new Date("18/07/1994"), "France", "0608854560", "Male");
+    private final PersonDto personWithoutOptionalInformation = new PersonDto("Francois", new Date("18/07/1994"), "France", "", "");
 
     @Test
     void addPersonSuccess() {
