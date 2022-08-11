@@ -1,5 +1,6 @@
 package fr.francoisaudoy.personregister.service;
 
+import fr.francoisaudoy.personregister.exception.UserNotFoundException;
 import fr.francoisaudoy.personregister.logger.BeforeLog;
 import fr.francoisaudoy.personregister.model.PersonDto;
 import fr.francoisaudoy.personregister.model.entity.PersonEntity;
@@ -18,15 +19,14 @@ public class RegisterService {
     @BeforeLog
     public PersonEntity createPerson(PersonDto person) {
         final PersonEntity entity = person.toEntity();
-
         return repository.save(entity);
     }
 
     @BeforeLog
-    public PersonDto getPersonInformation(Long id) throws Exception {
+    public PersonDto getPersonInformation(Long id) throws UserNotFoundException {
         Optional<PersonEntity> optionalEntity = repository.findById(id);
-        if(optionalEntity.isEmpty())
-            throw new Exception("User does not exist");
+        if (optionalEntity.isEmpty())
+            throw new UserNotFoundException("User does not exist");
         return optionalEntity.get().toDto();
     }
 }
