@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController()
 @Controller
 @RequestMapping(path = "/person")
@@ -25,7 +27,7 @@ public class RegisterController {
 
     @PutMapping(value = "/register",
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Long> addPerson(@RequestBody PersonDto person) {
+    public ResponseEntity<Long> addPerson(@RequestBody @Valid PersonDto person) {
         PersonEntity entity = registerService.createPerson(person);
         return ResponseEntity.ok(entity.getId());
     }
