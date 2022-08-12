@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "dd500cc5-d644-4766-9350-b7a81ac74600",
+		"name": "PersonRegister",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register a person",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"Francois\",\n\t\"birthdate\" : \"15/05/2019\",\n\t\"country\" : \"Russia\",\n\t\"phoneNumber\":\"0608854560\",\n\t\"gender\" : \"Male\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/person/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"person",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register a person invalid username",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"Francois\",\n\t\"birthdate\" : \"15/05/2019\",\n\t\"country\" : \"Russia\",\n\t\"phoneNumber\":\"0608854560\",\n\t\"gender\" : \"Male\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/person/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"person",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register a person invalid birthdate",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"Francois\",\n\t\"birthdate\" : \"15/05/2019\",\n\t\"country\" : \"Russia\",\n\t\"phoneNumber\":\"0608854560\",\n\t\"gender\" : \"Male\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/person/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"person",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register a person Invalid country",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"Francois\",\n\t\"birthdate\" : \"15/05/2019\",\n\t\"country\" : \"Russia\",\n\t\"phoneNumber\":\"0608854560\",\n\t\"gender\" : \"Male\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/person/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"person",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register a person invalid phoneNumber",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"Francois\",\n\t\"birthdate\" : \"15/05/2019\",\n\t\"country\" : \"Russia\",\n\t\"phoneNumber\":\"0608854560\",\n\t\"gender\" : \"Male\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/person/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"person",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register a person invalid gender",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"Francois\",\n\t\"birthdate\" : \"15/05/2019\",\n\t\"country\" : \"Russia\",\n\t\"phoneNumber\":\"0608854560\",\n\t\"gender\" : \"Male\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/person/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"person",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve a person",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/person/information/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"person",
+						"information",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
