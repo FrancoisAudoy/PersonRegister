@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 public class PersonValidator implements ConstraintValidator<PersonConstraint, PersonDto> {
 
@@ -30,6 +31,8 @@ public class PersonValidator implements ConstraintValidator<PersonConstraint, Pe
     @Value("${personRegister.minimalAge}")
     private Short minimalAge;
 
+    private final String phoneNumberPattern = "[0-9]{10}";
+
     @SneakyThrows
     @Override
     public boolean isValid(PersonDto personDto, ConstraintValidatorContext constraintValidatorContext) {
@@ -44,7 +47,7 @@ public class PersonValidator implements ConstraintValidator<PersonConstraint, Pe
             throw new InvalidBirthdateException("birthdate field can't be null and age must be equal or greater than " + minimalAge);
 
         if (personDto.getPhoneNumber() != null
-                && PHONE_NUMBER_SIZE != personDto.getPhoneNumber().length())
+                && !Pattern.matches(phoneNumberPattern, personDto.getPhoneNumber()))
             throw new InvalidPhoneNumberException("phone number size has to be of 10 digit");
 
         if (personDto.getGender() != null

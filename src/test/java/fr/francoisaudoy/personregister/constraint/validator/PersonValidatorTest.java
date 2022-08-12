@@ -50,6 +50,9 @@ class PersonValidatorTest {
         final PersonDto invalidPhoneNumberEmpty = new PersonDto("Francois", new Date("18/07/1994"), "FRANCE", "", "MALE");
         Assertions.assertThrowsExactly(InvalidPhoneNumberException.class,() -> validator.isValid(invalidPhoneNumberEmpty, null));
 
+        final PersonDto invalidPhoneNumberInvalidChar= new PersonDto("Francois", new Date("18/07/1994"), "FRANCE", "+336587495", "MALE");
+        Assertions.assertThrowsExactly(InvalidPhoneNumberException.class,() -> validator.isValid(invalidPhoneNumberInvalidChar, null));
+
         final PersonDto invalidGender = new PersonDto("Francois", new Date("18/07/1994"), "FRANCE", "0608854560", "");
         Assertions.assertThrowsExactly(InvalidGenderException.class,() -> validator.isValid(invalidGender, null));
 
