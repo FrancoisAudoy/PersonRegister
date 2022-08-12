@@ -1,10 +1,7 @@
 package fr.francoisaudoy.personregister.constraint.validator;
 
 import fr.francoisaudoy.personregister.constraint.PersonConstraint;
-import fr.francoisaudoy.personregister.exception.InvalidBirthdateException;
-import fr.francoisaudoy.personregister.exception.InvalidCountryException;
-import fr.francoisaudoy.personregister.exception.InvalidPhoneNumberException;
-import fr.francoisaudoy.personregister.exception.InvalidUserNameException;
+import fr.francoisaudoy.personregister.exception.*;
 import fr.francoisaudoy.personregister.model.PersonDto;
 import lombok.Setter;
 import lombok.SneakyThrows;
@@ -46,9 +43,13 @@ public class PersonValidator implements ConstraintValidator<PersonConstraint, Pe
                 || minimalAge > getAge(personDto.getBirthdate()))
             throw new InvalidBirthdateException("birthdate field can't be null and age must be equal or greater than " + minimalAge);
 
-        if (StringUtils.isNotBlank(personDto.getPhoneNumber())
+        if (personDto.getPhoneNumber() != null
                 && PHONE_NUMBER_SIZE != personDto.getPhoneNumber().length())
             throw new InvalidPhoneNumberException("phone number size has to be of 10 digit");
+
+        if (personDto.getGender() != null
+                && StringUtils.isBlank(personDto.getGender()))
+            throw new InvalidGenderException("if field gender is specify then it can not be empty");
 
         return true;
     }

@@ -1,9 +1,6 @@
 package fr.francoisaudoy.personregister.constraint.validator;
 
-import fr.francoisaudoy.personregister.exception.InvalidBirthdateException;
-import fr.francoisaudoy.personregister.exception.InvalidCountryException;
-import fr.francoisaudoy.personregister.exception.InvalidPhoneNumberException;
-import fr.francoisaudoy.personregister.exception.InvalidUserNameException;
+import fr.francoisaudoy.personregister.exception.*;
 import fr.francoisaudoy.personregister.model.PersonDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -16,7 +13,7 @@ import java.util.Date;
 class PersonValidatorTest {
 
     private final PersonDto personWithFullInformation = new PersonDto("Francois", new Date("18/07/1994"), "FRANCE", "0608854560", "Male");
-    private final PersonDto personWithoutOptionalInformation = new PersonDto("Francois", new Date("18/07/1994"), "FRANCE", "", "");
+    private final PersonDto personWithoutOptionalInformation = new PersonDto("Francois", new Date("18/07/1994"), "FRANCE", null, null);
 
     private static PersonValidator validator;
 
@@ -49,6 +46,12 @@ class PersonValidatorTest {
 
         final PersonDto invalidPhoneNumber = new PersonDto("Francois", new Date("18/07/1994"), "FRANCE", "06088", "MALE");
         Assertions.assertThrowsExactly(InvalidPhoneNumberException.class,() -> validator.isValid(invalidPhoneNumber, null));
+
+        final PersonDto invalidPhoneNumberEmpty = new PersonDto("Francois", new Date("18/07/1994"), "FRANCE", "", "MALE");
+        Assertions.assertThrowsExactly(InvalidPhoneNumberException.class,() -> validator.isValid(invalidPhoneNumberEmpty, null));
+
+        final PersonDto invalidGender = new PersonDto("Francois", new Date("18/07/1994"), "FRANCE", "0608854560", "");
+        Assertions.assertThrowsExactly(InvalidGenderException.class,() -> validator.isValid(invalidGender, null));
 
         final PersonDto invalidPerson = new PersonDto("", null, "", "06", "MALE");
         Assertions.assertThrowsExactly(InvalidUserNameException.class,() -> validator.isValid(invalidPerson, null));
