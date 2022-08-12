@@ -6,12 +6,14 @@ import fr.francoisaudoy.personregister.exception.InvalidCountryException;
 import fr.francoisaudoy.personregister.exception.InvalidPhoneNumberException;
 import fr.francoisaudoy.personregister.exception.InvalidUserNameException;
 import fr.francoisaudoy.personregister.model.PersonDto;
+import lombok.Setter;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
@@ -21,10 +23,15 @@ public class PersonValidator implements ConstraintValidator<PersonConstraint, Pe
 
     private static final int PHONE_NUMBER_SIZE = 10;
 
+    @Setter
+    @NotNull
     @Value("${personRegister.validCountry}")
     private String validCountry;
+
+    @Setter
+    @NotNull
     @Value("${personRegister.minimalAge}")
-    private Long minimalAge;
+    private Short minimalAge;
 
     @SneakyThrows
     @Override
