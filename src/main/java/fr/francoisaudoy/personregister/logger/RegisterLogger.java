@@ -32,5 +32,4 @@ public class RegisterLogger {
             logger.info(MessageFormat.format(INFO_MSG, joinPoint.toShortString()));
 
     }
-
 }

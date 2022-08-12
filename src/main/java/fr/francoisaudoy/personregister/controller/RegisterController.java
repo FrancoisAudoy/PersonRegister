@@ -1,5 +1,6 @@
 package fr.francoisaudoy.personregister.controller;
 
+import fr.francoisaudoy.personregister.exception.UserNotFoundException;
 import fr.francoisaudoy.personregister.model.PersonDto;
 import fr.francoisaudoy.personregister.model.entity.PersonEntity;
 import fr.francoisaudoy.personregister.service.RegisterService;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @RestController()
 @Controller
@@ -21,13 +23,13 @@ public class RegisterController {
 
     @GetMapping(value = "/information/{personId}",
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<PersonDto> findPersonInformation(@PathVariable(name = "personId") Long id) throws Exception {
+    public ResponseEntity<PersonDto> findPersonInformation(@PathVariable(name = "personId") Long id) throws UserNotFoundException {
         return ResponseEntity.ok(registerService.getPersonInformation(id));
     }
 
     @PutMapping(value = "/register",
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Long> addPerson(@RequestBody @Valid PersonDto person) {
+    public ResponseEntity<Long> addPerson(@RequestBody @NotNull @Valid PersonDto person) {
         PersonEntity entity = registerService.createPerson(person);
         return ResponseEntity.ok(entity.getId());
     }
